@@ -1,63 +1,134 @@
-# EasyParkingCL
+# 🚗 EasyParkingCL
 
-# 🚗 Parking App – Encuentra y Reserva tu Estacionamiento Inteligente
+**Encuentra, reserva y paga tu estacionamiento ideal usando IA, geolocalización y biometría.**  
+EasyParkingCL es una plataforma inteligente (móvil y web) que conecta a conductores con los mejores lugares para estacionar según conveniencia, cercanía, tráfico en tiempo real y disponibilidad.
 
-Plataforma inteligente (web y móvil) que permite a los usuarios encontrar, reservar y pagar estacionamientos disponibles usando inteligencia artificial, geolocalización, biometría y más.
+---
+
+## 🌐 Visión General
+
+> ¿Llegando al Portal Temuco o a un mall y no sabes dónde estacionar?  
+> EasyParkingCL te guía al espacio más conveniente con ayuda de mapas, IA y sensores inteligentes.
 
 ---
 
 ## 📦 Estructura del Proyecto (Monorepo)
+
+EasyParkingCL/
+├── backend/ # API REST - Django + DRF
+│ ├── apps/ # Apps modulares (parking, users, reservations, etc.)
+│ ├── easypark/ # Configuración principal Django
+│ ├── env/ # Entorno virtual (local)
+│ ├── Dockerfile
+│ ├── .env
+│ └── README.md
+├── frontend/ # App móvil - React Native (Expo)
+│ ├── components/ # Componentes (Atomic Design)
+│ ├── screens/ # Pantallas de la app
+│ ├── assets/ # Íconos, imágenes
+│ └── ...
+├── scripts/ # Scripts útiles (crear apps, backups, etc.)
+├── docs/ # Documentación técnica, flujos, mockups
+├── .gitignore
+├── .dockerignore
+├── Makefile
+└── README.md # Este archivo
 
 
 ---
 
 ## 🚀 Tecnologías
 
-- **Frontend Web**: React, TypeScript, Zustand, TailwindCSS / Material UI
-- **Mobile**: React Native (Expo), Zustand
-- **Backend**: Python 3.8.7, Django REST Framework, PostgreSQL, Redis, Celery
-- **Autenticación**: Firebase Auth, Google OAuth2, biometría (voz, rostro, huella)
-- **IA**: Recomendaciones inteligentes, reconocimiento de voz y rostro (OpenAI, TensorFlow, Whisper, MediaPipe)
-- **Pagos**: Stripe / MercadoPago / Transbank
-- **DevOps**: Docker, GitHub Actions, Terraform, NGINX, Firebase Cloud Messaging
+| Categoría          | Stack Tecnológico |
+|--------------------|-------------------|
+| **Frontend**       | React Native (Expo), React.js, TypeScript, Zustand, TailwindCSS, Three.js |
+| **Backend**        | Python 3.8.7, Django REST Framework, PostgreSQL + PostGIS |
+| **Autenticación**  | Firebase Auth, Google OAuth2, RUT/Correo, Huella, Voz, Rostro |
+| **IA/ML**          | OpenAI, TensorFlow, Whisper, MediaPipe |
+| **Pagos**          | Stripe / Transbank / MercadoPago |
+| **Geolocalización**| Google Maps API, Mapbox |
+| **DevOps**         | Docker, GitHub Actions, Terraform, NGINX |
+| **Notificaciones** | Firebase Cloud Messaging |
+| **Asíncronía**     | Celery + Redis |
 
 ---
 
 ## 🔐 Autenticación
 
-- Usuario/Contraseña
-- Login con Google
-- Reconocimiento biométrico:
-  - Huella
-  - Voz
-  - Rostro
+- RUT + Contraseña
+- Correo + Contraseña
+- Google OAuth2
+- Biometría:
+  - 🧬 Rostro (MediaPipe)
+  - 🖐️ Huella (lector móvil)
+  - 🔊 Voz (Whisper)
+- Verificación por código vía correo
 
 ---
 
 ## 🧠 Inteligencia Artificial
 
-- Recomendación de estacionamientos personalizados
-- Asistente de voz para buscar y reservar
-- Reconocimiento de voz, rostro y huella para autenticación
-- Predicción de disponibilidad de estacionamientos
+- 🔍 Recomendación automática del lugar ideal
+- 🎙️ Asistente por voz
+- 📊 Predicción de demanda
+- 🤖 Reconocimiento biométrico seguro
 
 ---
 
-## 🗺️ Funcionalidades
+## 🗺️ Funcionalidades principales
 
-- Buscar estacionamientos cercanos (Google Maps / Mapbox)
-- Reservas anticipadas y pagos integrados
-- Sistema de puntuaciones y reseñas
-- Modo offline (PWA) y dark mode
-- Panel administrativo con métricas en tiempo real
+- Buscar estacionamientos por cercanía, precio o disponibilidad
+- Reservar y pagar online
+- Vista 3D (Three.js)
+- Panel administrativo con métricas
+- PWA + Dark mode + modo offline
 
 ---
 
-## 🐳 Configuración rápida (Dev)
+## 🐳 Configuración rápida para desarrollo
 
-Requiere tener instalado: Docker + Docker Compose
+### Requisitos previos
+
+- Python 3.8.7
+- Docker + Docker Compose
+- Node.js y yarn/npm
+- Firebase CLI
+
+### Backend
 
 ```bash
-# Clonar el proyecto
-git clone https://github.com/tu_usuario/parking-app.git
-cd EasyParkingCL
+cd backend
+python3 -m venv env
+source env/bin/activate
+cp .env.example .env
+make docker-up
+make migrate-local
+make createsuperuser-local
+make run-local
+
+
+🛠️ DevOps
+CI/CD: GitHub Actions
+
+Infraestructura como código: Terraform
+
+NGINX + SSL para producción
+
+Firebase para notificaciones push
+
+📍 Roadmap
+ Login con correo y Google
+
+ Login por biometría
+
+ Dashboard admin web
+
+ Sensores físicos (IoT)
+
+ IA predictiva de espacios
+
+👤 Autor
+Pedro Pablo Osorio San Martín
+📫 posoriosanmartin@gmail.com
+🔗 https://github.com/PPOSM1993
+
