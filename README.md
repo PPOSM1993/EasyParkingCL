@@ -82,7 +82,7 @@ EasyParkingCL es una plataforma inteligente (móvil y web) que conecta a conduct
 
 ### ⚙️ Backend
 
-```bash
+bash
 cd backend
 python3 -m venv env
 source env/bin/activate
@@ -252,7 +252,7 @@ Notificaciones push: Firebase Cloud Messaging (FCM)
 
  Pagos vía Transbank y MercadoPago
 
-```
+
 👤 Autor
 Pedro Pablo Osorio San Martín
 📫 posoriosanmartin@gmail.com
