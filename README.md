@@ -255,6 +255,8 @@ Notificaciones push: Firebase Cloud Messaging (FCM)
 ---
 👤 Autor
 Pedro Pablo Osorio San Martín
-📫 posoriosanmartin@gmail.com
-🔗 https://github.com/PPOSM1993
 ---
+📫 posoriosanmartin@gmail.com
+---
+🔗 https://github.com/PPOSM1993
+
