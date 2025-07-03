@@ -252,6 +252,7 @@ Notificaciones push: Firebase Cloud Messaging (FCM)
 
  Pagos vía Transbank y MercadoPago
 
+```
 👤 Autor
 Pedro Pablo Osorio San Martín
 📫 posoriosanmartin@gmail.com
