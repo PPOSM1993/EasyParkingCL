@@ -1,4 +1,12 @@
 #!/bin/bash
+set -e
+
+echo "⏳ Esperando a que la base de datos esté lista..."
+
+until pg_isready -h "$POSTGRES_HOST" -p "$POSTGRES_PORT" -U "$POSTGRES_USER"; do
+  echo "Esperando a que la base de datos responda..."
+  sleep 2
+done
 
 echo "🛠️ Ejecutando migraciones..."
 python manage.py migrate
