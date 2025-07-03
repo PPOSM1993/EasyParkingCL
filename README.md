@@ -82,7 +82,7 @@ EasyParkingCL es una plataforma inteligente (móvil y web) que conecta a conduct
 
 ### ⚙️ Backend
 
-bash
+```bash
 cd backend
 python3 -m venv env
 source env/bin/activate
@@ -102,7 +102,7 @@ Aplicación móvil desarrollada con **React Native + Expo** que permite a los us
 
 ---
 
-### 🚀 Tecnologías Principales
+## 🚀 Tecnologías Principales
 
 - **React Native (Expo)**
 - **TypeScript**
