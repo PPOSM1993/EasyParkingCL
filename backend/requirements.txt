@@ -1,0 +1,17 @@
+Django>=4.2
+djangorestframework
+djangorestframework-simplejwt
+django-environ
+gunicorn
+psycopg2-binary
+celery
+redis
+django-cors-headers
+django-allauth
+dj-rest-auth
+Pillow
+drf-yasg
+django-filter
+channels
+channels-redis
+django-extensions
