@@ -130,5 +130,5 @@ Firebase para notificaciones push
 👤 Autor
 Pedro Pablo Osorio San Martín
 📫 posoriosanmartin@gmail.com
-🔗 https://github.com/PPOSM1993
+🔗  https://github.com/PPOSM1993
 
