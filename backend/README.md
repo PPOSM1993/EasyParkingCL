@@ -79,3 +79,6 @@ URLs versionadas (/api/v1/)
 👨‍💻 Autor
 Pedro Pablo Osorio San Martín
 📫 pedro@example.com
+
+make test-local         # Test en entorno virtual
+make docker-test        # Test vía Docker
