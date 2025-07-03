@@ -14,25 +14,7 @@ EasyParkingCL es una plataforma inteligente (móvil y web) que conecta a conduct
 
 ## 📦 Estructura del Proyecto (Monorepo)
 
-EasyParkingCL/
-├── backend/ # API REST - Django + DRF
-│ ├── apps/ # Apps modulares (parking, users, reservations, etc.)
-│ ├── easypark/ # Configuración principal Django
-│ ├── env/ # Entorno virtual (local)
-│ ├── Dockerfile
-│ ├── .env
-│ └── README.md
-├── frontend/ # App móvil - React Native (Expo)
-│ ├── components/ # Componentes (Atomic Design)
-│ ├── screens/ # Pantallas de la app
-│ ├── assets/ # Íconos, imágenes
-│ └── ...
-├── scripts/ # Scripts útiles (crear apps, backups, etc.)
-├── docs/ # Documentación técnica, flujos, mockups
-├── .gitignore
-├── .dockerignore
-├── Makefile
-└── README.md # Este archivo
+![image](https://github.com/user-attachments/assets/d2b9b6f7-81d5-4a73-9d72-1f59a9e26676)
 
 
 ---
