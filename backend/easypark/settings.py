@@ -31,6 +31,7 @@ ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=[])
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'apps.authentication',
     'apps.ai',
     'apps.parking',
+    'apps.locations',
 
     #INSTALLED DEPENDENCIES
     'rest_framework',
@@ -67,7 +69,7 @@ ROOT_URLCONF = 'easypark.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -189,3 +191,68 @@ print(f"POSTGRES_USER: {env('POSTGRES_USER')}")
 print(f"POSTGRES_PASSWORD: {env('POSTGRES_PASSWORD')}")
 print(f"POSTGRES_HOST: {env('POSTGRES_HOST')}")
 print(f"POSTGRES_PORT: {env('POSTGRES_PORT')}")
+
+JAZZMIN_SETTINGS = {
+    "site_title": "EasyParking CL Admin",
+    "site_header": "EasyParking CL",
+    "site_brand": "EasyParking",
+    "welcome_sign": "EasyParking Panel de Administracion 🚗",
+    #"site_logo": "img/logo1.png",  # <-- solo la ruta desde 'static/'
+    #"login_logo": "img/logo1.png",
+    "site_logo_classes": "brand-image",  # <- solo esto, sin 'img-circle'
+    "copyright": "EasyParking © 2025",
+    #"custom_css": "css/custom.css",  # Lo usaremos en el siguiente paso
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": [],
+    "order_with_respect_to": ["auth", "users", "parkings", "ciudades"],
+    # Login
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "user_avatar": None,
+
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "parkings.Parking": "fas fa-warehouse",
+        "ciudades.Ciudad": "fas fa-city",
+        # Añade tus modelos aquí
+    },
+
+    "default_icon_parents": "fas fa-folder-open",
+    "default_icon_children": "fas fa-angle-right",
+
+    "custom_links": {
+        "auth": [{
+            "name": "Documentación",
+            "url": "https://docs.djangoproject.com/",
+            "icon": "fas fa-book",
+            "permissions": ["auth.view_user"]
+        }]
+    },
+
+    "search_model": ["auth.User", "parkings.Parking"],
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "darkly",  # Otros: flatly, cyborg, journal, lumen, etc.
+    "dark_mode_theme": "cyborg",
+    "navbar_small_text": False,
+    "footer_small_text": False,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": "navbar-primary",
+    "accent": "accent-primary",
+    "navbar": "navbar-dark bg-primary",
+    "no_navbar_border": False,
+    "sidebar": "sidebar-dark-primary",
+    "sidebar_nav_small_text": True,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_flat_style": True,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_child_indent": True,
+    "sidebar_nav_child_hide": False,
+    "sidebar_nav_icon": "circle",
+}
