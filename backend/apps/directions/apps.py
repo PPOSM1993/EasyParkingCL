@@ -1,8 +1,9 @@
 from django.apps import AppConfig
 
-class LocationsConfig(AppConfig):
+
+class DirectionsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.locations'
+    name = 'apps.directions'
 
     def ready(self):
-        import apps.locations.signals
+        import apps.directions.signlas
