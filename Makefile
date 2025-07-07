@@ -70,7 +70,7 @@ docker-migrate:
 
 docker-makemigrations:
 	docker-compose run web python manage.py makemigrations
-	
+
 
 docker-createsuperuser:
 	docker-compose run web python manage.py createsuperuser
@@ -82,6 +82,9 @@ init-docker:
 
 docker-test:
 	docker-compose run web python manage.py test
+
+docker-startapp:
+	docker-compose run web python manage.py startapp $(name) backend/apps/$(name)
 
 # ========================
 # 🧼 UTILITY
