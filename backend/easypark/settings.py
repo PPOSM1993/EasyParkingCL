@@ -225,7 +225,7 @@ JAZZMIN_SETTINGS = {
         "auth": "fas fa-users-cog",
         "auth.user": "fas fa-user",
         "auth.Group": "fas fa-users",
-        "parkings.Parking": "fas fa-warehouse",
+        "parking.Parking": "fas fa-warehouse",
         "ciudades.Ciudad": "fas fa-city",
         # Añade tus modelos aquí
     },
@@ -242,7 +242,7 @@ JAZZMIN_SETTINGS = {
         }]
     },
 
-    "search_model": ["auth.User", "parkings.Parking"],
+    "search_model": ["auth.User", "parking.Parking"],
 }
 
 JAZZMIN_UI_TWEAKS = {
