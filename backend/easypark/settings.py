@@ -45,6 +45,12 @@ INSTALLED_APPS = [
     'apps.parking',
     'apps.locations',
     'apps.directions',
+    'apps.core',
+    'apps.notifications',
+    'apps.session',
+    'apps.vehicles',
+    'apps.users',
+    'apps.payments',
 
     #INSTALLED DEPENDENCIES
     'rest_framework',
@@ -147,6 +153,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.openapi.AutoSchema',
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
@@ -179,6 +186,7 @@ DEFAULT_FROM_EMAIL = 'no-reply@coworkapp.local'
 
 
 AUTH_USER_MODEL = 'authentication.User'
+#AUTH_USER_MODEL = 'users.User'
 
 CORS_ALLOWED_ORIGINS = [
     #"https://example.com",
