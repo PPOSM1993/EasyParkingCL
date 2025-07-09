@@ -47,6 +47,11 @@ phone_validator = RegexValidator(
 )
 
 class User(AbstractBaseUser, PermissionsMixin):
+    ROLE_CHOICES = (
+        ('client', 'Cliente'),
+        ('operator', 'Operador'),
+        ('admin', 'Administrador'),
+    )
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=150, unique=True)
     first_name = models.CharField(max_length=150)
@@ -58,6 +63,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='client')
 
     objects = UserManager()
 

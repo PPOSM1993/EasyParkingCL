@@ -28,6 +28,8 @@ urlpatterns = [
     path('api/parking/', include('apps.parking.urls')),
     path('api/locations/', include('apps.locations.urls')),
     path('api/directions/', include('apps.directions.urls')),
+    path('api/', include('apps.session.urls')),
+    #path('api/users/', include('apps.users.urls')),
     path('api/auth/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
