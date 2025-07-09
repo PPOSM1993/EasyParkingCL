@@ -9,7 +9,7 @@ class ParkingSession(models.Model):
     ]
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='sessions')
-    #vehicle = models.ForeignKey('vehicles.Vehicle', on_delete=models.SET_NULL, null=True, blank=True)
+    vehicle = models.ForeignKey('vehicles.Vehicle', on_delete=models.SET_NULL, null=True, blank=True)
     parking_space = models.ForeignKey('parking.Parking', on_delete=models.SET_NULL, null=True, blank=True)
 
     destination_address = models.CharField(max_length=255, help_text="Dirección o destino deseado por el usuario")

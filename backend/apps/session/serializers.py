@@ -7,6 +7,7 @@ class ParkingSessionSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'user',
+            'vehicle',
             'parking_space',
             'destination_address',
             'start_time',
