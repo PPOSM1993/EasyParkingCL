@@ -1,30 +1,29 @@
-// Fallback for using MaterialIcons on Android and web.
+// IconSymbol.tsx
 
+import AntDesign from '@expo/vector-icons/AntDesign'; // 👈 Ya lo tienes
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { SymbolWeight, SymbolViewProps } from 'expo-symbols';
-import { ComponentProps } from 'react';
-import { OpaqueColorValue, type StyleProp, type TextStyle } from 'react-native';
+import { OpaqueColorValue, StyleProp, TextStyle } from 'react-native';
 
-type IconMapping = Record<SymbolViewProps['name'], ComponentProps<typeof MaterialIcons>['name']>;
-type IconSymbolName = keyof typeof MAPPING;
+type IconSymbolName =
+  | 'house.fill'
+  | 'paperplane.fill'
+  | 'login.circle.fill'
+  | 'adduser.fill'; // Agrega aquí los que necesites
 
-/**
- * Add your SF Symbols to Material Icons mappings here.
- * - see Material Icons in the [Icons Directory](https://icons.expo.fyi).
- * - see SF Symbols in the [SF Symbols](https://developer.apple.com/sf-symbols/) app.
- */
-const MAPPING = {
-  'house.fill': 'home',
-  'paperplane.fill': 'send',
-  'chevron.left.forwardslash.chevron.right': 'code',
-  'chevron.right': 'chevron-right',
-} as IconMapping;
+// Mapear nombres simbólicos a nombres reales e íconos de librerías
+const MAPPING: Record<
+  IconSymbolName,
+  {
+    name: string;
+    family: 'MaterialIcons' | 'AntDesign';
+  }
+> = {
+  'house.fill': { name: 'home', family: 'MaterialIcons' },
+  'paperplane.fill': { name: 'send', family: 'MaterialIcons' },
+  'login.circle.fill': { name: 'login', family: 'AntDesign' },
+  'adduser.fill': { name: 'adduser', family: 'AntDesign' },
+};
 
-/**
- * An icon component that uses native SF Symbols on iOS, and Material Icons on Android and web.
- * This ensures a consistent look across platforms, and optimal resource usage.
- * Icon `name`s are based on SF Symbols and require manual mapping to Material Icons.
- */
 export function IconSymbol({
   name,
   size = 24,
@@ -35,7 +34,13 @@ export function IconSymbol({
   size?: number;
   color: string | OpaqueColorValue;
   style?: StyleProp<TextStyle>;
-  weight?: SymbolWeight;
 }) {
-  return <MaterialIcons color={color} size={size} name={MAPPING[name]} style={style} />;
+  const icon = MAPPING[name];
+  if (!icon) return null;
+
+  const { name: iconName, family } = icon;
+
+  const IconComponent = family === 'AntDesign' ? AntDesign : MaterialIcons;
+
+  return <IconComponent name={iconName} size={size} color={color} style={style} />;
 }
