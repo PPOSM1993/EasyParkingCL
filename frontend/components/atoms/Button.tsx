@@ -1,16 +1,19 @@
-import { Text, TouchableOpacity } from 'react-native';
+import clsx from 'clsx';
+import { ReactNode } from 'react';
+import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
-interface Props {
-  title: string;
-  onPress: () => void;
-  variant?: 'primary' | 'secondary';
-}
+type ButtonProps = TouchableOpacityProps & {
+  children: ReactNode;
+  className?: string;
+};
 
-export default function Button({ title, onPress, variant = 'primary' }: Props) {
-  const styles = variant === 'primary' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-black';
+export default function Button({ children, className, ...props }: ButtonProps) {
   return (
-    <TouchableOpacity onPress={onPress} className={`px-4 py-2 rounded ${styles}`}>
-      <Text className="text-center font-semibold">{title}</Text>
+    <TouchableOpacity
+      className={clsx("w-full py-3 rounded-lg items-center", className)}
+      {...props}
+    >
+      {children}
     </TouchableOpacity>
   );
 }

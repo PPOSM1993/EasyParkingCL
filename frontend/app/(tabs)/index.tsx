@@ -1,24 +1,38 @@
-import { Text, View } from 'react-native';
-import Button from '../../components/atoms/Button';
+import { LinearGradient } from 'expo-linear-gradient';
+import { View } from 'react-native';
+import * as Animatable from 'react-native-animatable';
+import LoginForm from '../../components/molecules/LoginForm';
 import Navbar from '../../components/organisms/Navbar';
 import '../../styles/global.css';
 
 export default function HomeScreen() {
   return (
-    <View className="flex-1 bg-white">
+    <LinearGradient
+      colors={['#0077B6', '#00B4D8']}
+      className="flex-1"
+    >
       <Navbar />
 
-      <View className="flex-1 justify-center items-center px-6 space-y-6">
-        <Text className="text-3xl font-bold text-center text-blue-600">Bienvenido a EasyParkingCL</Text>
-        <Text className="text-base text-gray-500 text-center">
-          Encuentra y reserva estacionamientos inteligentes con IA y localización en tiempo real.
-        </Text>
+      <View className="flex-1 justify-center items-center px-6 py-10 space-y-6">
+        <Animatable.Image
+          animation="fadeInDown"
+          duration={1000}
+          source={require('../../assets/images/logo1.png')}
+          className="w-32 h-32 mb-2"
+          resizeMode="contain"
+        />
 
-        <View className="w-full space-y-4 mt-6">
-          <Button title="Iniciar sesión" onPress={() => alert('Login')} />
-          <Button title="Crear cuenta" onPress={() => alert('Signup')} variant="secondary" />
-        </View>
+        <Animatable.View
+          animation="fadeInUp"
+          duration={1000}
+          delay={200}
+          className="space-y-6 px-4"
+        >
+
+        </Animatable.View>
+        <LoginForm />
+
       </View>
-    </View>
+    </LinearGradient>
   );
 }
