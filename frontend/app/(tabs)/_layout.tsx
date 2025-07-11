@@ -1,6 +1,8 @@
+// app/_layout.tsx
+import { Poppins_400Regular, Poppins_700Bold, useFonts } from '@expo-google-fonts/poppins';
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform } from 'react-native';
+import { ActivityIndicator, Platform, View } from 'react-native';
 
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
@@ -8,10 +10,21 @@ import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 
-
-
 export default function TabLayout() {
+  const [fontsLoaded] = useFonts({
+    Poppins_400Regular,
+    Poppins_700Bold,
+  });
+
   const colorScheme = useColorScheme();
+
+  if (!fontsLoaded) {
+    return (
+      <View className="flex-1 justify-center items-center bg-white">
+        <ActivityIndicator size="large" color="#2563eb" />
+      </View>
+    );
+  }
 
   return (
     <Tabs
@@ -48,7 +61,6 @@ export default function TabLayout() {
           ),
         }}
       />
-
       <Tabs.Screen
         name="index"
         options={{
@@ -58,7 +70,6 @@ export default function TabLayout() {
           ),
         }}
       />
-
       <Tabs.Screen
         name="explore"
         options={{
@@ -69,6 +80,5 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
-
   );
 }
